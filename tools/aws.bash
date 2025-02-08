@@ -24,7 +24,11 @@ function get_aws_account() {
     echo "${GREEN}--- current aws account:${BLUE} $(aws sts get-caller-identity --output text)${NC}"
 }
 
-echo "${GREEN}--- aws scripts loaded${NC} - available commands: aws_login, get_aws_config, aws_configure, get_current_aws_profile, get_aws_account"
+function get_iam_users() {
+    echo "${GREEN}--- iam users:${BLUE} $(aws iam list-users --output json)${NC}"
+}
+
+echo "${GREEN}--- aws scripts loaded${NC} - available commands: aws_login, get_aws_config, aws_configure, get_current_aws_profile, get_aws_account, get_iam_users"
 
 get_aws_config
 get_aws_account
