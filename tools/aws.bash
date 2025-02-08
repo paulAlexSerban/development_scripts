@@ -28,7 +28,17 @@ function get_iam_users() {
     echo "${GREEN}--- iam users:${BLUE} $(aws iam list-users --output json)${NC}"
 }
 
-echo "${GREEN}--- aws scripts loaded${NC} - available commands: aws_login, get_aws_config, aws_configure, get_current_aws_profile, get_aws_account, get_iam_users"
+function generate_credential_report() {
+    echo "${GREEN}--- generating credential report${NC}"
+    aws iam generate-credential-report
+}
+
+function get_credential_report() {
+    echo "${GREEN}--- getting credential report${NC}"
+    aws iam get-credential-report
+}
+
+echo "${GREEN}--- aws scripts loaded${NC} - available commands: aws_login, get_aws_config, aws_configure, get_current_aws_profile, get_aws_account, get_iam_users, generate_credential_report, get_credential_report"
 
 get_aws_config
 get_aws_account
