@@ -1,4 +1,5 @@
 #!/bin/bash
+source ~/development_scripts/.env
 
 function get_git_config() {
     echo "${GREEN}--- current git username:${BLUE} $(git config user.name)${NC}"
@@ -6,20 +7,16 @@ function get_git_config() {
 }
 
 function set_git_work_config() {
-    USERNAME=${GITHUB_WORK_USERNAME}
-    EMAIL=${GITHUB_WORK_EMAIL}
     echo "${GREEN}--- changed git to work configuration${NC}"
-    git config --global user.name "${USERNAME}"
-    git config --global user.email "${EMAIL}"
+    git config --global user.name ${GITHUB_WORK_USERNAME}
+    git config --global user.email ${GITHUB_WORK_EMAIL}
     get_git_config
 }
 
 function set_git_personal_config() {
-    USERNAME=${GITHUB_PERSONAL_USERNAME}
-    EMAIL=${GITHUB_PERSONAL_EMAIL}
     echo "${GREEN}--- Changed git personal configuration -----${BLUE}"
-    git config --global user.name "${USERNAME}"
-    git config --global user.email "${EMAIL}"
+    git config --global user.name ${GITHUB_PERSONAL_USERNAME}
+    git config --global user.email ${GITHUB_PERSONAL_EMAIL}
     get_git_config
 }
 
