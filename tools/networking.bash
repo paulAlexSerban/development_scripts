@@ -24,5 +24,6 @@ function check_connection_speed() {
 
 }
 
-echo "${GREEN}--- networking scripts loaded${NC} - available commands: check_internet_connection, check_connection_speed, get_ip"
+echo "${GREEN}--- networking scripts loaded${NC}"
+echo "         available commands: check_internet_connection, check_connection_speed, get_ip"
 get_ip

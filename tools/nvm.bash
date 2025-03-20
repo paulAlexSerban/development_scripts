@@ -11,7 +11,8 @@ function set_local_node_version() {
   nvm use
 }
 
-echo "${GREEN}--- nvm scripts loaded${NC} - available commands: set_local_node_version"
+echo "${GREEN}--- nvm scripts loaded${NC}"
+echo "         available commands: set_local_node_version"
 
 if [ -f .nvmrc ]; then
   set_local_node_version

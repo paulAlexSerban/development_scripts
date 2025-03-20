@@ -21,3 +21,6 @@ function get-sysinfo() {
 
     code /tmp/sysinfo.txt
 }
+
+echo "${GREEN}--- sysinfo scripts loaded${NC}"
+echo "         available commands: get-sysinfo"

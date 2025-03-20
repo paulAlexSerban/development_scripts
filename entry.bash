@@ -6,6 +6,7 @@ source ~/development_scripts/tools/git.bash
 source ~/development_scripts/tools/k8s.bash
 source ~/development_scripts/tools/networking.bash
 source ~/development_scripts/tools/nvm.bash
+source ~/development_scripts/tools/ssh.bash
 source ~/development_scripts/tools/sysinfo.bash
 source ~/development_scripts/tools/tab.bash
 source ~/development_scripts/tools/yarn.bash

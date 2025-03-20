@@ -3,6 +3,8 @@ source ~/development_scripts/.env
 
 function get_aws_config() {
     echo "${GREEN}--- current aws profile:${BLUE} $(aws configure get profile)${NC}"
+    echo "${GREEN}--- current aws region:${BLUE} $(aws configure get region)${NC}"
+
 }
 
 function aws_configure() {
@@ -49,7 +51,5 @@ function ssh_to_ec2() {
     ssh -i $PEM_KEY_FILE ec2-user@$EC2_INSTANCE_IP
 }
 
-echo "${GREEN}--- aws scripts loaded${NC} - available commands: aws_login, get_aws_config, aws_configure, get_current_aws_profile, get_aws_account, get_iam_users, generate_credential_report, get_credential_report"
-
-get_aws_config
-get_aws_account
+echo "${GREEN}--- aws scripts loaded${NC}"
+echo "         available commands: aws_login, get_aws_config, aws_configure, get_current_aws_profile, get_aws_account, get_iam_users, generate_credential_report, get_credential_report"

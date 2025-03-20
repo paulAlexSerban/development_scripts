@@ -6,4 +6,5 @@ function yarn_clean() {
     yarn $@
 }
 
-echo "${GREEN}--- yarn helper scripts loaded${NC} - available commands: yarn_clean"
+echo "${GREEN}--- yarn helper scripts loaded${NC}"
+echo "         available commands: yarn_clean"

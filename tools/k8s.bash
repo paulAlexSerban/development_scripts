@@ -38,4 +38,5 @@ function update_kubeconfig() {
     done
 }
 
-echo -e "${GREEN}--- K8S scripts loaded${NC} - available commands: update_kubeconfig"
+echo -e "${GREEN}--- K8S scripts loaded${NC}"
+echo "         available commands: update_kubeconfig"
