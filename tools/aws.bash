@@ -51,5 +51,9 @@ function ssh_to_ec2() {
     ssh -i $PEM_KEY_FILE ec2-user@$EC2_INSTANCE_IP
 }
 
+function get_availability_zones() {
+    aws ec2 describe-availability-zones --query "AvailabilityZones[].{Name:ZoneName,ID:ZoneId}" --output table
+}
+
 echo "${GREEN}--- aws scripts loaded${NC}"
 echo "         available commands: aws_login, get_aws_config, aws_configure, get_current_aws_profile, get_aws_account, get_iam_users, generate_credential_report, get_credential_report"
