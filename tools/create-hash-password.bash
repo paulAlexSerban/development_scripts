@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# makes sure the folder containing the script will be the root folder
-cd "$(dirname "$0")" || exit
-
 function create_hash_password() {
     local username="$1"
     local password="$2"
