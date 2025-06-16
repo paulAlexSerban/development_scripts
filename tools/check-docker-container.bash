@@ -17,53 +17,53 @@ function check_docker_container() {
   CONTAINER=$1
 
   if [ "${CONTAINER}" == "" ]; then
-    echo "🛑 3 - UNKNOWN" 
-    echo "🛑 Container ID or Friendly Name Required"
-    echo "🛑 Usage: check_docker_container $0 <container_id_or_friendly_name>"
+    echo "${RED}--- 3 - UNKNOWN${NC}"
+    echo "${RED}--- Container ID or Friendly Name Required${NC}"
+    echo "${RED}--- Usage: check_docker_container $0 <container_id_or_friendly_name>${NC}"
     exit 3
   fi
 
   if [ "$(which docker)" == "" ]; then
-    echo "🛑 3 - UNKNOWN" 
-    echo "🛑 Missing docker binary"
+    echo "${RED}--- 3 - UNKNOWN${NC}"
+    echo "${RED}--- Missing docker binary${NC}"
     exit 3
   fi
 
-  docker info > /dev/null 2>&1
+  docker info >/dev/null 2>&1
   # shellcheck disable=SC2181
   if [ $? -ne 0 ]; then
-    echo "🛑 3 - UNKNOWN" 
-    echo "🛑 Unable to talk to the docker daemon"
+    echo "${RED}--- 3 - UNKNOWN${NC}"
+    echo "${RED}--- Unable to talk to the docker daemon${NC}"
     exit 3
   fi
 
-  RUNNING=$(docker inspect --format="{{.State.Running}}" "$CONTAINER" 2> /dev/null)
+  RUNNING=$(docker inspect --format="{{.State.Running}}" "$CONTAINER" 2>/dev/null)
 
   if [ $? -eq 1 ]; then
-    echo "🛑 3 - UNKNOWN"
-    echo "🛑 $CONTAINER does not exist."
+    echo "${RED}--- 3 - UNKNOWN${NC}"
+    echo "${RED}--- $CONTAINER does not exist.${NC}"
     exit 3
   fi
 
   if [ "$RUNNING" == "false" ]; then
-    echo "2 - CRITICAL" 
-    echo "$CONTAINER is not running."
+    echo "${GREEN}---  2 - CRITICAL${NC}"
+    echo "${GREEN}---  $CONTAINER is not running.${NC}"
     exit 2
   fi
 
   RESTARTING=$(docker inspect --format="{{.State.Restarting}}" "$CONTAINER")
 
   if [ "$RESTARTING" == "true" ]; then
-    echo "1 - WARNING" 
-    echo "$CONTAINER state is restarting."
+    echo "${YELLOW}--- 1 - WARNING${NC}"
+    echo "${YELLOW}--- $CONTAINER state is restarting.${NC}"
     exit 1
   fi
 
   STARTED=$(docker inspect --format="{{.State.StartedAt}}" "$CONTAINER")
   NETWORK=$(docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" "$CONTAINER")
 
-  echo "🟢 0 - RUNNING OK"
-  echo "🟢 $CONTAINER is running."
-  echo "🟢 -> IP: $NETWORK"
-  echo "🟢 Started at: $STARTED"
+  echo "${GREEN}--- 0 - RUNNING OK${NC}"
+  echo "${GREEN}--- $CONTAINER is running.${NC}"
+  echo "${GREEN}--- -> IP: $NETWORK${NC}"
+  echo "${GREEN}--- Started at: $STARTED${NC}"
 }

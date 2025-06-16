@@ -5,7 +5,7 @@ function create_hash_password() {
     local password="$2"
 
     if [[ -z "$username" || -z "$password" ]]; then
-        echo "Usage: create_hash_password <username> <password>"
+        echo "${RED}--- Usage: create_hash_password <username> <password> ${NC}"
         return 1
     fi
 
