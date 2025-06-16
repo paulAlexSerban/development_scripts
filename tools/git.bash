@@ -23,4 +23,3 @@ function set_git_personal_config() {
 echo "${GREEN}--- git scripts loaded${NC}"
 echo "         available commands: set_git_work_config, set_git_personal_config, get_git_config"
 get_git_config
-
