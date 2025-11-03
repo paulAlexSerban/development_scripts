@@ -13,5 +13,5 @@ source ~/development_scripts/tools/tab.bash
 source ~/development_scripts/tools/yarn.bash
 
 echo "${BLUE}--- ~/development_scripts loaded ${NC}"
-sleep 3
+sleep 1
 clear
