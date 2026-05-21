@@ -46,7 +46,7 @@ def parse_args():
                         help="Root directory to scan (default: .)")
     parser.add_argument("-p", "--patterns", default="*.js|*.jsx", metavar="GLOBS",
                         help='Pipe-separated glob patterns (default: "*.js|*.jsx")')
-    parser.add_argument("-e", "--exclude", default="node_modules|.git|dist|.next|__pycache__|.venv",
+    parser.add_argument("-e", "--exclude", default="node_modules|.git|dist|.next|__pycache__|.venv|coverage",
                         metavar="DIRS",
                         help="Pipe-separated directory names to skip")
     parser.add_argument("-o", "--output", default="bundle.md", metavar="FILE",
