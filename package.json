@@ -1,14 +1,14 @@
 {
-  "name": "development_scripts",
+  "name": "scripts",
   "version": "1.0.0",
   "description": "**Version:** 1.2.0 **Author:** Paul Serban   **Description:** Collection of development automation scripts",
-  "homepage": "https://github.com/paulAlexSerban/development_scripts#readme",
+  "homepage": "https://github.com/paulAlexSerban/scripts#readme",
   "bugs": {
-    "url": "https://github.com/paulAlexSerban/development_scripts/issues"
+    "url": "https://github.com/paulAlexSerban/scripts/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paulAlexSerban/development_scripts.git"
+    "url": "git+https://github.com/paulAlexSerban/scripts.git"
   },
   "license": "ISC",
   "author": "",

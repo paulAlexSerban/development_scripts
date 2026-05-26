@@ -1,0 +1,8 @@
+#!/bin/bash
+# makes sure the folder containing the script will be the root folder
+cd "$(dirname "$0")" || exit
+
+source "../utils/bash/colors.bash"
+
+print_info "git username: $(git config user.name)${NC}"
+print_info "git email: $(git config user.email)${NC}"
